@@ -6,7 +6,7 @@
   "identity": "VSContentModTemplate",
   "shortName": "vscontentmod",
   "sourceName": "_ProjectName_",
-  "description": "A simple template for creating a Vintage Story content mod.",
+  "description": "A simple template for creating Vintage Story content mods",
   "tags": {
     "language": "json",
     "type": "project"
