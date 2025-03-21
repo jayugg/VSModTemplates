@@ -7,5 +7,5 @@ MODID=$(jq -r '.modid' modinfo.json)
 rm -f "${MODID}"_*.zip
 # Define mod version and output file name
 OUTPUT="${MODID}_${VERSION}.zip"
-zip -r "${OUTPUT}" ./ -x ".*" "*.zip" "*.DS_STORE" "changelog.txt" "build.sh"
+zip -r "${OUTPUT}" ./ -x ".*" "*.zip" "*.DS_STORE" "changelog.txt" "build.sh" "README.md"
 echo "Mod archive created: ${OUTPUT}"

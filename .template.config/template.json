@@ -153,11 +153,13 @@
           ]
         },
         {
+          "__comment__": "Exclude unnecessary files",
           "condition": "(true)",
           "exclude": [
-            "_ProjectName_.sln",
             ".idea/**/*",
-            ".git/**/*"
+            ".git/**/*",
+            "_ProjectName_.sln",
+            "README.md"
           ]
         }
       ]
