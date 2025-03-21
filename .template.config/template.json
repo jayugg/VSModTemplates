@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json.schemastore.org/template",
+  "author": "jayu",
+  "classifications": [ "Games", "Vintage Story" ],
+  "name": "Vintage Story Content Mod",
+  "identity": "VSContentModTemplate",
+  "shortName": "vscontentmod",
+  "sourceName": "_ProjectName_",
+  "description": "A simple template for creating a Vintage Story content mod.",
+  "tags": {
+    "language": "json",
+    "type": "project"
+  },
+  "symbols": {
+    "AddBuildScript": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds a bash build script to zip the template mod",
+      "defaultValue": "true"
+    },
+    "AddChangelogFile": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds a sample changelog file to the template mod",
+      "defaultValue": "true"
+    },
+    "AddBlocktypesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample blocktypes folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddItemtypesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample itemtypes folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddBlocktypesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample blocktypes folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddEntitiesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample entities folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddLangFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample lang folder to the template mod",
+      "defaultValue": "true"
+    },
+    "AddRecipesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample recipes folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddPatchesFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample patches folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddCompatibilityFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample compatibility folder to the template mod",
+      "defaultValue": "false"
+    },
+    "AddHandbookFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds sample handbook folder to the template mod",
+      "defaultValue": "false"
+    },
+    "ModIdLowercase": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"name",
+        "toLower": true
+      },
+      "replaces": "_modid_",
+      "fileRename": "_modid_"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!AddBuildScript)",
+          "exclude": [
+            "_ProjectName_/build.sh",
+            ".run/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddChangelogFile)",
+          "exclude": [
+            "_ProjectName_/changelog.txt"
+          ]
+        },
+        {
+          "condition": "(!AddItemtypesFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/itemtypes/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddBlocktypesFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/blocktypes/**/*"
+          ]
+        },        {
+          "condition": "(!AddEntitiesFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/entities/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddLangFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/lang/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddRecipesFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/recipes/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddPatchesFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/patches/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddCompatibilityFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/compatibility/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddHandbookFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/handbook/**/*"
+          ]
+        },
+        {
+          "condition": "(true)",
+          "exclude": [
+            "_ProjectName_.sln",
+            ".idea/**/*",
+            ".git/**/*"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "_modid_",
+  "name": "_ProjectName_",
+  "side": "universal",
+  "authors": [ "unknown" ],
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": { "game": "" }
+}
