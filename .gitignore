@@ -4,7 +4,7 @@
 # Rider ignored files
 /modules.xml
 /.idea.*.iml
-.idea/*/**
+/.idea/**/*
 /projectSettingsUpdater.xml
 /contentModel.xml
 # Datasource local storage ignored files
