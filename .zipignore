@@ -1,0 +1,5 @@
+# Exclude files from the zip archive
+scripts/*
+*.zip
+changelog.txt
+README.md

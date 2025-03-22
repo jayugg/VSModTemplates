@@ -9,13 +9,14 @@
   "description": "A simple template for creating Vintage Story content mods",
   "tags": {
     "language": "json",
-    "type": "project"
+    "type": "solution",
+    "editorTreatAs":"solution"
   },
   "symbols": {
-    "AddBuildScript": {
+    "IncludeScripts": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds a bash build script to zip the template mod",
+      "description": "Adds build and launch scripts to package the mod as a zip and start the game from your IDE",
       "defaultValue": "true"
     },
     "AddChangelogFile": {
@@ -78,6 +79,24 @@
       "description": "Adds sample handbook folder to the template mod",
       "defaultValue": "false"
     },
+    "ArmMacOsLaunchSettings": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "(Rider) Include launch settings for Arm Mac OS (uou may only need this on Mac OS, maybe linux. Useless with scripts disabled)",
+      "defaultValue": "false"
+    },
+    "VSCodeLaunchSettings": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Include VSCode tasks.json and launch.json for zipping the mod and launching the game (Useless with scripts disabled)",
+      "defaultValue": "false"
+    },
+    "RiderLaunchSettings": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Include Rider .run folder with settings for zipping the mod and launching the game (Useless with scripts disabled)",
+      "defaultValue": "false"
+    },
     "ModIdLowercase": {
       "type": "generated",
       "generator": "casing",
@@ -93,76 +112,107 @@
     {
       "modifiers": [
         {
-          "condition": "(!AddBuildScript)",
+          "condition": "(!IncludeScripts)",
           "exclude": [
-            "_ProjectName_/build.sh",
-            ".run/**/*"
+            "scripts/*.sh",
+            ".run/**/*",
+            ".vscode/**/*"
           ]
         },
         {
           "condition": "(!AddChangelogFile)",
           "exclude": [
-            "_ProjectName_/changelog.txt"
+            "changelog.txt"
           ]
         },
         {
           "condition": "(!AddItemtypesFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/itemtypes/**/*"
+            "assets/_modid_/itemtypes/**/*"
           ]
         },
         {
           "condition": "(!AddBlocktypesFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/blocktypes/**/*"
+            "assets/_modid_/blocktypes/**/*"
           ]
         },        {
           "condition": "(!AddEntitiesFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/entities/**/*"
+            "assets/_modid_/entities/**/*"
           ]
         },
         {
           "condition": "(!AddLangFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/lang/**/*"
+            "assets/_modid_/lang/**/*"
           ]
         },
         {
           "condition": "(!AddRecipesFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/recipes/**/*"
+            "assets/_modid_/recipes/**/*"
           ]
         },
         {
           "condition": "(!AddPatchesFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/patches/**/*"
+            "assets/_modid_/patches/**/*"
           ]
         },
         {
           "condition": "(!AddCompatibilityFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/compatibility/**/*"
+            "assets/_modid_/compatibility/**/*"
           ]
         },
         {
           "condition": "(!AddHandbookFolder)",
           "exclude": [
-            "_ProjectName_/assets/_modid_/handbook/**/*"
+            "assets/_modid_/handbook/**/*"
+          ]
+        },
+        {
+          "condition": "(!VSCodeLaunchSettings)",
+          "exclude": [
+            ".vscode/**/*"
+          ]
+        },
+        {
+          "condition": "(!RiderLaunchSettings)",
+          "exclude": [
+            ".run/**/*"
           ]
         },
         {
           "__comment__": "Exclude unnecessary files",
-          "condition": "(true)",
           "exclude": [
             ".idea/**/*",
             ".git/**/*",
-            "_ProjectName_.sln",
+            ".gitignore",
+            "*.zip",
+            ".DS_Store",
+            "VSContentModTemplate.csproj",
             "README.md"
           ]
         }
       ]
+    }
+  ],
+  "postActions": [
+    {
+      "condition": "(OS != \"Windows_NT\")",
+      "description": "Make scripts executable",
+      "manualInstructions": [
+        {
+          "text": "Run 'chmod +x *.sh'"
+        }
+      ],
+      "actionId": "cb9a6cf3-4f5c-4860-b9d2-03a574959774",
+      "args": {
+        "+x": "scripts/*.sh"
+      },
+      "continueOnError": true
     }
   ]
 }

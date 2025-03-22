@@ -1,0 +1,59 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/scripts/build.sh",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true,
+                "order": 0
+            }
+        },
+        {
+            "name": "Launch Client",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "${env:VINTAGE_STORY}/Vintagestory.exe --tracelog --addModPath ${workspaceFolder}/Releases",
+            "linux": {
+                "command": "${env:VINTAGE_STORY}/Vintagestory --tracelog --addModPath ${workspaceFolder}/Releases"
+            },
+            "osx": {
+                "command": "${env:VINTAGE_STORY}/Vintagestory --tracelog --addModPath ${workspaceFolder}/Releases"
+            },
+            "preLaunchTask": "build",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true,
+                "order": 1
+            }
+        },
+        {
+            "name": "Launch Server",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "${env:VINTAGE_STORY}/VintagestoryServer.exe --tracelog --addModPath ${workspaceFolder}/Releases",
+            "linux": {
+                "command": "${env:VINTAGE_STORY}/VintagestoryServer --tracelog --addModPath ${workspaceFolder}/Releases"
+            },
+            "osx": {
+                "command": "${env:VINTAGE_STORY}/VintagestoryServer --tracelog --addModPath ${workspaceFolder}/Releases"
+            },
+            "preLaunchTask": "build",
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true,
+                "order": 2
+            }
+        }
+    ]
+}
