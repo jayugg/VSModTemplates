@@ -15,5 +15,9 @@
 /indexLayout.xml
 /vcs.xml
 
+# NuGet ignored files
+/bin
+/obj
+
 *.zip
 *.DS_Store
