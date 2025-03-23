@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.1.3</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Title>Vintage Story Content Mod Template</Title>
@@ -24,7 +24,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <TemplateFile Include="**/*" Exclude="bin/**;obj/**;.git/**;*.csproj;.gitignore" />
+    <Content Include="**\*" Exclude="bin/**;obj/**;.git/**;*.csproj;.gitignore;-run/" />
+    <None Include=".template.config\**\*" Pack="true" PackagePath=".template.config\" />
     <None Include=".\README.md" Pack="true" PackagePath=""/>
     <None Include=".\modicon.png" Pack="true" PackagePath=""/>
   </ItemGroup>

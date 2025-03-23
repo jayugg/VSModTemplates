@@ -25,9 +25,17 @@ Check the [Rider](#Rider) or [VS Code section](#VS-Code) sections or the [script
 
 ### Install
 
+#### Nuget
+```bash
+dotnet new install jayugg.VintageStory.Mod.Templates
+```
+
+#### Local installation
 Enter the parent folder of your local copy of this repository and run the following command
 ```bash
-dotnet new install VSContentModTemplates
+cd VSContentModTemplates
+dotnet pack
+dotnet new install bin/Release/jayugg.Vintagestory.Mod.Templates.1.x.x.nupkg
 ```
 
 ### Use
@@ -72,9 +80,18 @@ Check out also the Vintage Story wiki instructions on [installing the official t
 
 ### Uninstall
 You can go in the parent folder and run
+
+#### Nuget
+
+```bash
+dotnet new uninstall jayugg.VintageStory.Mod.Templates
+```
+
+#### Local installation
 ```bash
 dotnet new uninstall VSContentModTemplates
 ```
+
 Alternatively you can run the command
 
 ```bash
