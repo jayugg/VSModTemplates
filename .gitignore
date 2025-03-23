@@ -21,3 +21,5 @@
 
 *.zip
 *.DS_Store
+/Install/
+/Install/README.md
