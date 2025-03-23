@@ -2,12 +2,12 @@
   
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.2.3</PackageVersion>
+    <PackageVersion>1.2.4</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Title>Vintage Story Mod Templates</Title>
     <Authors>jayu</Authors>
-    <Description>Custom templates for creating Vintage Story content mods</Description>
+    <Description>Custom templates for creating Vintage Story mods</Description>
     <PackageTags>dotnet-new;templates;VintageStory;Modding</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>modicon.png</PackageIcon>
