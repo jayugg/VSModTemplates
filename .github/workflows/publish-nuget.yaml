@@ -1,11 +1,9 @@
 name: Publish NuGet Package
-
 on:
   push:
     branches: ['release']
   release:
     types: ['published']
-
 jobs:
   publish:
     runs-on: ubuntu-latest
