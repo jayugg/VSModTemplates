@@ -30,7 +30,7 @@ jobs:
       - name: Publish NuGet package to GitHub Packages
         env:
           PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
-          OWNER: jacopouggeri
+          OWNER: jayugg
         run: |
           dotnet nuget add source --username $OWNER --password $PACKAGES_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${OWNER}/index.json"
           dotnet nuget push bin/Release/*.nupkg --api-key $PACKAGES_AUTH_TOKEN --source "github" --skip-duplicate
