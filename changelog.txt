@@ -1,2 +1,3 @@
-v1.0.0
-- I'm new!
+VS Mod Templates v1.2.0
+- Restructure project
+- Add code mod template

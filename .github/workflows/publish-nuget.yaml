@@ -29,8 +29,17 @@ jobs:
 
       - name: Publish NuGet package to GitHub Packages
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
           OWNER: jacopouggeri
         run: |
-          dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${OWNER}/index.json"
-          dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "github"
+          dotnet nuget add source --username $OWNER --password $PACKAGES_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${OWNER}/index.json"
+          dotnet nuget push bin/Release/*.nupkg --api-key $PACKAGES_AUTH_TOKEN --source "github"
+          
+      - name: Publish NuGet package to NuGet.org
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+          OWNER: jayugg
+        run: |
+            dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name nuget "https://api.nuget.org/v3/index.json"
+            dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "nuget"
+          

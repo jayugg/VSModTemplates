@@ -1,9 +1,9 @@
 {
-  "type": "content",
+  "type": "code",
   "modid": "_modid_",
   "name": "_ProjectName_",
-  "side": "universal",
-  "authors": [ "unknown" ],
+  "side": "_modside_",
+  "authors": [ _modauthors_ ],
   "description": "",
   "version": "1.0.0",
   "dependencies": { "game": "" }

@@ -15,9 +15,9 @@
 /indexLayout.xml
 /vcs.xml
 
-# NuGet ignored files
-/bin
-/obj
+# dotnet pack ignored files
+**/bin/**/*
+**/obj/**/*
 
 # GitHub Packages ignored files
 nuget.config

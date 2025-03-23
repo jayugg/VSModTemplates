@@ -2,18 +2,18 @@
   
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.2</PackageVersion>
+    <PackageVersion>1.2.0</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-    <Title>Vintage Story Content Mod Template</Title>
+    <Title>Vintage Story Mod Templates</Title>
     <Authors>jayu</Authors>
-    <Description>A simple template for creating Vintage Story content mods</Description>
-    <PackageTags>dotnet-new;templates;json;VintageStory;Modding</PackageTags>
+    <Description>Custom templates for creating Vintage Story content mods</Description>
+    <PackageTags>dotnet-new;templates;VintageStory;Modding</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>modicon.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/jayugg/VSContentModTemplate</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/jayugg/VSContentModTemplate</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jayugg/VSModTemplates</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/jayugg/VSModTemplates</PackageProjectUrl>
     <TargetFramework>net7.0</TargetFramework>
 
     <IncludeContentInPack>true</IncludeContentInPack>
@@ -24,10 +24,10 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Content Include="**\*" Exclude="bin/**;obj/**;.git/**;*.csproj;.gitignore;-run/;nuget.config;.github/**/*" />
-    <None Include=".template.config\**\*" Pack="true" PackagePath=".template.config\" />
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
     <None Include=".\README.md" Pack="true" PackagePath="" />
     <None Include=".\modicon.png" Pack="true" PackagePath="" />
+    <Compile Remove="**\*" />
   </ItemGroup>
 
 </Project>

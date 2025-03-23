@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/template",
   "author": "jayu",
-  "classifications": [ "Games", "Vintage Story" ],
+  "classifications": [ "Games", "Modding", "Vintage Story" ],
   "name": "Vintage Story Content Mod",
   "identity": "VSContentModTemplate",
   "shortName": "vscontentmod",
@@ -10,92 +10,129 @@
   "tags": {
     "language": "json",
     "type": "solution",
-    "editorTreatAs":"solution"
+    "editorTreatAs": "solution"
   },
+  "copyOnly": [ "../../modicon.png", "../../changelog.txt" ],
   "symbols": {
     "IncludeScripts": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds build and launch scripts to package the mod as a zip and start the game from your IDE",
+      "description": "Adds build and launch scripts to package the mod as a zip and start the game from your IDE.",
       "defaultValue": "true"
     },
     "AddChangelogFile": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds a sample changelog file to the template mod",
-      "defaultValue": "true"
+      "description": "Adds a sample changelog file to the template mod.",
+      "defaultValue": "false"
     },
     "AddBlocktypesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample blocktypes folder to the template mod",
+      "description": "Adds sample blocktypes folder to the template mod.",
       "defaultValue": "false"
     },
     "AddItemtypesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample itemtypes folder to the template mod",
+      "description": "Adds sample itemtypes folder to the template mod.",
       "defaultValue": "false"
     },
     "AddBlocktypesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample blocktypes folder to the template mod",
+      "description": "Adds sample blocktypes folder to the template mod.",
       "defaultValue": "false"
     },
     "AddEntitiesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample entities folder to the template mod",
+      "description": "Adds sample entities folder to the template mod.",
       "defaultValue": "false"
     },
     "AddLangFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample lang folder to the template mod",
+      "description": "Adds sample lang folder to the template mod.",
       "defaultValue": "true"
     },
     "AddRecipesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample recipes folder to the template mod",
+      "description": "Adds sample recipes folder to the template mod.",
       "defaultValue": "false"
     },
     "AddPatchesFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample patches folder to the template mod",
+      "description": "Adds sample patches folder to the template mod.",
       "defaultValue": "false"
     },
     "AddCompatibilityFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample compatibility folder to the template mod",
+      "description": "Adds sample compatibility folder to the template mod.",
       "defaultValue": "false"
     },
     "AddHandbookFolder": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds sample handbook folder to the template mod",
+      "description": "Adds sample handbook folder to the template mod.",
       "defaultValue": "false"
     },
     "ArmMacOsLaunchSettings": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "(Rider) Include launch settings for Arm Mac OS (uou may only need this on Mac OS, maybe linux. Useless with scripts disabled)",
+      "description": "(Rider) Include launch settings for Arm Mac OS (You may only need this on Mac OS, maybe linux. Useless with scripts disabled).",
       "defaultValue": "false"
     },
     "VSCodeLaunchSettings": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Include VSCode tasks.json and launch.json for zipping the mod and launching the game (Useless with scripts disabled)",
+      "description": "Include VSCode tasks.json and launch.json for zipping the mod and launching the game (Useless with scripts disabled.)",
       "defaultValue": "false"
     },
     "RiderLaunchSettings": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Include Rider .run folder with settings for zipping the mod and launching the game (Useless with scripts disabled)",
+      "description": "Include Rider .run folder with settings for zipping the mod and launching the game (Useless with scripts disabled.)",
       "defaultValue": "false"
+    },
+    "VSInstall": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "The directory of the Vintage Story installation to use for references and Client/Server launcher.",
+      "defaultValue": "$(VINTAGE_STORY)",
+      "replaces": "$(VINTAGE_STORY)"
+    },
+    "ModAuthors": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "The names of the mod authors, surrounded by quotes, separated by commas.",
+      "defaultValue": "\"unknown\"",
+      "replaces": "_modauthors_"
+    },
+    "ModSide": {
+      "type": "parameter",
+      "description": "The side of the mod, either 'client', 'server', or 'universal'.",
+      "datatype": "choice",
+      "enableQuotelessLiterals": true,
+      "choices": [
+        {
+          "choice": "client",
+          "description": "Client side mod, only runs on the client"
+        },
+        {
+          "choice": "server",
+          "description": "Server side mod, only runs on the server"
+        },
+        {
+          "choice": "universal",
+          "description": "Universal mod, runs on both client and server"
+        }
+      ],
+      "replaces": "_modside_",
+      "defaultValue": "universal"
     },
     "ModIdLowercase": {
       "type": "generated",
@@ -182,6 +219,12 @@
           "condition": "(!RiderLaunchSettings)",
           "exclude": [
             ".run/**/*"
+          ]
+        },
+        {
+          "include": [
+            "../../modicon.png",
+            "../../changelog.txt"
           ]
         },
         {

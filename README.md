@@ -3,6 +3,7 @@ This repository contains the following template, which can be used with Rider, V
 ```
 Template Name                Short Name      Language  Tags
 ---------------------------  --------------  --------  -------------------
+Vintage Story Code Mod       vscodemod       [C#]      Games/Vintage Story     
 Vintage Story Content Mod    vscontentmod    [json]    Games/Vintage Story             
 ```
 - vscontentmod

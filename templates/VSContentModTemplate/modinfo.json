@@ -1,0 +1,10 @@
+{
+  "type": "content",
+  "modid": "_modid_",
+  "name": "_ProjectName_",
+  "side": "_modside_",
+  "authors": [ _modauthors_ ],
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": { "game": "" }
+}

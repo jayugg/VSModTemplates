@@ -1,0 +1,234 @@
+{
+  "__comment": "Forked from https://github.com/anegostudios/VSdotnetModTemplates",
+  "$schema": "https://json.schemastore.org/template",
+  "identity": "VSCodeModTemplate",
+  "author": "jayu",
+  "classifications": [ "Games", "Modding", "Vintage Story" ],
+  "name": "Vintage Story Code Mod",
+  "shortName": "vscodemod",
+  "sourceName": "_ProjectName_",
+  "description": "A project for creating a Vintage Story mod.",
+  "tags": {
+    "language": "C#",
+    "type": "solution",
+    "editorTreatAs": "solution"
+  },
+  "symbols": {
+    "SuppressWindowsConsoleWindow": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Suppresses the external console window on Windows. (You may only use this on Windows OS.)",
+      "defaultValue": "false"
+    },
+    "QuickStartCode": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Includes a ModSystem template to get you started quickly.",
+      "defaultValue": "true"
+    },
+    "AddSampleCode": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Includes some sample code to get you started.",
+      "defaultValue": "false"
+    },
+    "AddAssetFolder": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds the asset folder to the template mod.",
+      "defaultValue": "false"
+    },
+    "AddSolutionFile": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds .sln file for the mod including both Projects Mod and Cake build system.",
+      "defaultValue": "true"
+    },
+    "AddChangelogFile": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds a sample changelog file to the template mod.",
+      "defaultValue": "false"
+    },
+    "IncludeVSSurvivalMod": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds VSSurvivalMod as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeVSEssentials": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds VSEssentials as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeVSCreativeMod": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds VSCreativeMod as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeNewtonsoft": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds Newtonsoft.Json as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeHarmony": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds Harmony as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeVintagestoryLib": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds VintagestoryLib as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeProtobuf": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds Protobuf-net as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeCairoSharp": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds cairo-sharp as reference to the project.",
+      "defaultValue": "false"
+    },
+    "IncludeSQLite": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds Microsoft.Data.Sqlite as reference to the project.",
+      "defaultValue": "false"
+    },
+    "VSCodeTasks": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Include VSCode tasks.json and launch.json for testing.",
+      "defaultValue": "false"
+    },
+    "ArmMacOsLaunchSettings": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "(Rider) Include launch settings for Arm Mac OS (You may only need this on Mac OS, maybe linux. Useless with scripts disabled).",
+      "defaultValue": "false"
+    },
+    "AddSampleConfig": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Includes a sample config loader setup.",
+      "defaultValue": "false"
+    },
+    "AddExtraBuildScripts": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Includes build.sh and build.ps1 scripts for building the mod with CakeBuild (Not needed on Rider).",
+      "defaultValue": "false"
+    },
+    "AdvancedHarmonySetup": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Include a more advanced Harmony setup with patch categories. Requires IncludeHarmony.",
+      "defaultValue": "false"
+    },
+    "VSInstall": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "The directory of the Vintage Story installation to use for references and Client/Server launcher.",
+      "defaultValue": "$(VINTAGE_STORY)",
+      "replaces": "$(VINTAGE_STORY)"
+    },
+    "ModAuthors": {
+      "type": "parameter",
+      "datatype": "string",
+      "description": "The names of the mod authors, surrounded by quotes, separated by commas.",
+      "defaultValue": "\"unknown\"",
+      "replaces": "_modauthors_"
+    },
+    "ModSide": {
+      "type": "parameter",
+      "description": "The side of the mod, either 'client', 'server', or 'universal'.",
+      "datatype": "choice",
+      "enableQuotelessLiterals": true,
+      "choices": [
+        {
+          "choice": "client",
+          "description": "Client side mod, only runs on the client"
+        },
+        {
+          "choice": "server",
+          "description": "Server side mod, only runs on the server"
+        },
+        {
+          "choice": "universal",
+          "description": "Universal mod, runs on both client and server"
+        }
+      ],
+      "replaces": "_modside_",
+      "defaultValue": "universal"
+    },
+    "ModIdLowercase": {
+      "isRequired": true,
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"name",
+        "toLower": true
+      },
+      "replaces": "_modid_",
+      "fileRename": "_modid_"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "condition": "(!AddSampleCode && !AddAssetFolder)",
+          "exclude": [
+            "_ProjectName_/assets/_modid_/**/*"
+          ]
+        },
+        {
+          "condition": "(!VSCodeTasks)",
+          "exclude": [
+            ".vscode/**/*"
+          ]
+        },
+        {
+          "condition": "(!AddSolutionFile)",
+          "exclude": [
+            "_ProjectName_.sln"
+          ]
+        },
+        {
+          "condition": "(!AddSampleConfig)",
+          "exclude": [
+            "_ProjectName_/Config/**/*"
+          ]
+        },
+        {
+          "condition": "(!AdvancedHarmonySetup || !IncludeHarmony)",
+          "exclude": [
+            "_ProjectName_/_ProjectName_Core.PatchCategories.cs"
+          ]
+        },
+        {
+          "condition": "(!AddExtraBuildScripts)",
+          "exclude": [
+            "build.sh",
+            "build.ps1"
+          ]
+        },
+        {
+          "condition": "(!AddChangelogFile)",
+          "exclude": [
+            "_ProjectName_/changelog.txt"
+          ]
+        }
+      ]
+    }
+  ]
+}
