@@ -20,15 +20,6 @@ jobs:
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
-        
-      - name: Install MinVer
-        run: |
-          dotnet new tool-manifest
-          dotnet tool install minver-cli
-          dotnet tool restore
-
-      - name: Use MinVer
-        run: dotnet minver --auto-increment patch
 
       - name: Restore NuGet packages
         run: dotnet restore
