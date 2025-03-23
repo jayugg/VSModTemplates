@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PackageVersion>
+    <PackageVersion>1.1.2</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Title>Vintage Story Content Mod Template</Title>
@@ -28,19 +28,6 @@
     <None Include=".template.config\**\*" Pack="true" PackagePath=".template.config\" />
     <None Include=".\README.md" Pack="true" PackagePath="" />
     <None Include=".\modicon.png" Pack="true" PackagePath="" />
-  </ItemGroup>
-
-  <PropertyGroup>
-    <MinVerMinimumMajorMinor>1.0.0</MinVerMinimumMajorMinor>
-    <MinVerAutoIncrement>major</MinVerAutoIncrement>
-    <MinVerIgnoreHeight>true</MinVerIgnoreHeight>
-  </PropertyGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="MinVer" Version="6.0.0">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
   </ItemGroup>
 
 </Project>
