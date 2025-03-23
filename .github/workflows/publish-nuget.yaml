@@ -28,7 +28,7 @@ jobs:
         run: dotnet pack --configuration Release
 
       - name: Publish NuGet package to GitHub Packages
-        env:
+        with:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
           OWNER: jacopouggeri
         run: |
