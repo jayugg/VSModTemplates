@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="**\*" Exclude="bin/**;obj/**;.git/**;*.csproj;.gitignore;-run/" />
+    <Content Include="**\*" Exclude="bin/**;obj/**;.git/**;*.csproj;.gitignore;-run/;nuget.config;.github/**/*" />
     <None Include=".template.config\**\*" Pack="true" PackagePath=".template.config\" />
     <None Include=".\README.md" Pack="true" PackagePath=""/>
     <None Include=".\modicon.png" Pack="true" PackagePath=""/>

@@ -1,0 +1,34 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+
+      - name: Restore NuGet packages
+        run: dotnet restore
+
+      - name: Build and pack NuGet package
+        run: dotnet pack --configuration Release
+
+      - name: Publish NuGet package to GitHub Packages
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
+          OWNER: jacopouggeri
+        run: |
+          dotnet nuget add source --username OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
+          dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "github"

@@ -19,6 +19,9 @@
 /bin
 /obj
 
+# GitHub Packages ignored files
+nuget.config
+
 *.zip
 *.DS_Store
 /Install/
