@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/jayugg/VSModTemplates</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jayugg/VSModTemplates</PackageProjectUrl>
     <TargetFramework>net7.0</TargetFramework>
-
+    
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
