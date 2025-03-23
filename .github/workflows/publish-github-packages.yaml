@@ -1,11 +1,11 @@
-name: Publish NuGet Package to NuGet.org
+name: Publish NuGet Package to GitHub Packages
 
 on:
   push:
     branches: ['release']
   release:
     types: ['published']
-    
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -26,12 +26,11 @@ jobs:
 
       - name: Build and pack NuGet package
         run: dotnet pack --configuration Release
-  
-      - name: Publish NuGet package to NuGet.org
+
+      - name: Publish NuGet package to GitHub Packages
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
-          OWNER: jacopo.uggeri@gmail.com
+          PACKAGES_AUTH_TOKEN: ${{ secrets.PACKAGES_AUTH_TOKEN }}
+          OWNER: jacopouggeri
         run: |
-            dotnet nuget remove source nuget.org || true
-            dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name nuget.org "https://api.nuget.org/v3/index.json"
-            dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "nuget.org"
+          dotnet nuget add source --username $OWNER --password $PACKAGES_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${OWNER}/index.json"
+          dotnet nuget push bin/Release/*.nupkg --api-key $PACKAGES_AUTH_TOKEN --source "github"
