@@ -38,8 +38,7 @@ jobs:
       - name: Publish NuGet package to NuGet.org
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
-          OWNER: jayugg
+          OWNER: jacopo.uggeri@gmail.com
         run: |
-            dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name nuget "https://api.nuget.org/v3/index.json"
-            dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "nuget"
-          
+            dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name nuget.org "https://api.nuget.org/v3/index.json"
+            dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "nuget.org"
