@@ -28,9 +28,9 @@ jobs:
         run: dotnet pack --configuration Release
 
       - name: Publish NuGet package to GitHub Packages
-        with:
+        env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_AUTH_TOKEN }}
           OWNER: jacopouggeri
         run: |
-          dotnet nuget add source --username OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/OWNER/index.json"
+          dotnet nuget add source --username $OWNER --password $NUGET_AUTH_TOKEN --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${OWNER}/index.json"
           dotnet nuget push bin/Release/*.nupkg --api-key $NUGET_AUTH_TOKEN --source "github"
