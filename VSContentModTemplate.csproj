@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.1.2</PackageVersion>
+    <PackageVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Title>Vintage Story Content Mod Template</Title>
@@ -32,8 +32,10 @@
 
   <PropertyGroup>
     <MinVerMinimumMajorMinor>1.0.0</MinVerMinimumMajorMinor>
+    <MinVerAutoIncrement>major</MinVerAutoIncrement>
+    <MinVerIgnoreHeight>true</MinVerIgnoreHeight>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="MinVer" Version="6.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
