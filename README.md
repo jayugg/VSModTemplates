@@ -80,12 +80,9 @@ These are available for Rider and VS Code.
 Check the [Rider](#Rider) or [VS Code section](#VS-Code) sections or the [scripts readme](scripts/readme.md) for more information.
 
 ### Update
-To update the template, run the following command
 
 #### Nuget
-```bash
-dotnet new install jayugg.VintageStory.Mod.Templates --force
-```
+[Uninstall](#uninstall) the previous version, then [reinstall](#nuget-install-recommended).
 
 #### Local installation
 ```bash
@@ -95,7 +92,7 @@ dotnet new install bin/Release/jayugg.Vintagestory.Mod.Templates.1.x.x.nupkg --f
 ```
 
 ### Uninstall
-You can go in the parent folder and run the command
+You can go in the parent folder and run
 
 #### Nuget
 
@@ -108,7 +105,7 @@ dotnet new uninstall jayugg.VintageStory.Mod.Templates
 dotnet new uninstall VSContentModTemplates
 ```
 
-Alternatively you can run the command
+Alternatively you can run
 
 ```bash
 dotnet new uninstall
