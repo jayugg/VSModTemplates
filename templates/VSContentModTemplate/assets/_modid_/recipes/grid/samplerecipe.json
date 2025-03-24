@@ -1,0 +1,10 @@
+[
+  {
+    "__comment": "This is a sample recipe. It will convert 1 sample block into 8 sample items.",
+    "ingredientPattern": "H",
+    "ingredients": { "H": { "type": "block", "code": "sampleblock" } },
+    "width": 1,
+    "height": 1,
+    "output": { "type": "item", "code": "sampleitem", "quantity": 8 }
+  }
+]

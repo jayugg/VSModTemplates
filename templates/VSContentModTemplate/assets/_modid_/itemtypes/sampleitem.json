@@ -1,0 +1,9 @@
+{
+  "__comment": "This is a sample itemtype file. Check the wiki or the game files for more information.",
+  "class": "Item",
+  "code": "sampleitem",
+  "attributes": { "sampleattribute": true },
+  "creativeinventory": { "general": [ "*" ] },
+  "texture": { "base": "item/sampleitem" },
+  "shape": { "base": "item/sampleitem" }
+}

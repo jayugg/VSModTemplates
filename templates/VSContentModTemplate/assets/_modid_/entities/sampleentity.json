@@ -1,0 +1,21 @@
+{
+  "__comment": "This is a sample entity file. Check the wiki or the game files for more information.",
+  "code": "sampleentity",
+  "class": "Entity",
+  "hitboxSize": { "x": 0.5, "y": 0.25 },
+  "client": {
+    "renderer": "Item",
+    "behaviors": [
+      { "code": "passivephysics" },
+      { "code": "interpolateposition" },
+      { "code": "floatupwhenstuck" }
+    ]
+  },
+  "server": {
+    "behaviors": [
+      { "code": "passivephysics" },
+      { "code": "despawn", "minSeconds": 600 },
+      { "code": "floatupwhenstuck" }
+    ]
+  }
+}

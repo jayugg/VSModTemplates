@@ -1,3 +1,6 @@
-VS Mod Templates v1.2.0
-- Restructure project
-- Add code mod template
+VS Mod Templates v1.3.0
+- [Both templates] Change default settings to more used configurations
+- [Both templates] Compress the template options
+- [Code template] Collapse settings to include VS libraries into a single one and set it to true by default
+- [Content template] Fix client and server launch scripts not working properly
+- [Content template] Fix asset folders not loading in content template, possibly need to add sample files inside

@@ -1,0 +1,13 @@
+{
+  "__comment": "This is a sample blocktype file. Check the wiki or the game files for more information.",
+  "code": "sampleblock",
+  "behaviors": [ { "name": "SampleBehavior" } ],
+  "class": "Block",
+  "entityClass": "BlockEntity",
+  "creativeinventory": { "general": [ "" ], "decorative": [ "" ] },
+  "attributes": { "sampleattribute": "samplevalue" },
+  "texture": { "base": "block/sampleblock" },
+  "shape": { "base": "block/sampleblock" },
+  "sidesolid": { "all": false },
+  "sideopaque": { "all": false }
+}

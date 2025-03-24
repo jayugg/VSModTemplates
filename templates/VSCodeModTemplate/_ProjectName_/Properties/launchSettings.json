@@ -2,10 +2,10 @@
   "profiles": {
     "Client": {
       "commandName": "Executable",
-      //#if (SuppressWindowsConsoleWindow)
+      //#if (SystemSpecificLaunchSettings == SuppressWindowsConsoleWindow)
       "executablePath": "$(VINTAGE_STORY)/Vintagestory.exe",
       "commandLineArgs": "--tracelog --addModPath \"$(ProjectDir)/bin/$(Configuration)/Mods\"",
-      //#elseif (ArmMacOsLaunchSettings)
+      //#elseif (SystemSpecificLaunchSettings == ArmMacOsLaunchSettings)
       "executablePath": "$(VINTAGE_STORY)/Vintagestory",
       "commandLineArgs": "--tracelog --addModPath \"$(ProjectDir)/bin/$(Configuration)/Mods\"",
       //#else
@@ -16,10 +16,10 @@
     },
     "Server": {
       "commandName": "Executable",
-      //#if (SuppressWindowsConsoleWindow)
+      //#if (SystemSpecificLaunchSettings == SuppressWindowsConsoleWindow)
       "executablePath": "$(VINTAGE_STORY)/VintagestoryServer.exe",
       "commandLineArgs": "--tracelog --addModPath \"$(ProjectDir)/bin/$(Configuration)/Mods\"",
-      //#elseif (ArmMacOsLaunchSettings)
+      //#elseif (SystemSpecificLaunchSettings == ArmMacOsLaunchSettings)
       "executablePath": "$(VINTAGE_STORY)/VintagestoryServer",
       "commandLineArgs": "--tracelog --addModPath \"$(ProjectDir)/bin/$(Configuration)/Mods\"",
       //#else

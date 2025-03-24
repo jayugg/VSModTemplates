@@ -1,0 +1,17 @@
+[
+  {
+    "__comment": "An example of a patch that adds a new attribute to an existing itemtype",
+    "op": "add",
+    "path": "/attributes",
+    "file": "_modid_:itemtypes/sampleitem.json",
+    "value": { "sampleattribute2": false }
+  },
+  {
+    "__comment": "An example of a patch that replaces an existing attribute in an existing itemtype and depends on another mod",
+    "op": "replace",
+    "path": "/attributes/sampleattribute",
+    "file": "_modid_:itemtypes/sampleitem.json",
+    "value": false,
+    "dependsOn": [ { "modid": "samplemod" } ]
+  }
+]

@@ -14,12 +14,6 @@
     "editorTreatAs": "solution"
   },
   "symbols": {
-    "SuppressWindowsConsoleWindow": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Suppresses the external console window on Windows. (You may only use this on Windows OS.)",
-      "defaultValue": "false"
-    },
     "QuickStartCode": {
       "type": "parameter",
       "datatype": "bool",
@@ -36,85 +30,52 @@
       "type": "parameter",
       "datatype": "bool",
       "description": "Adds the asset folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddSolutionFile": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds .sln file for the mod including both Projects Mod and Cake build system.",
       "defaultValue": "true"
     },
-    "AddChangelogFile": {
+    "IncludeVintageStoryCode": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds a sample changelog file to the template mod.",
-      "defaultValue": "false"
+      "description": "Adds VSSurvivalMod, VSEssentials, VSCreativeMod and VintagestoryLib as reference to the project.",
+      "defaultValue": "true"
     },
-    "IncludeVSSurvivalMod": {
+    "IncludeExternalLibs": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds VSSurvivalMod as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeVSEssentials": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds VSEssentials as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeVSCreativeMod": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds VSCreativeMod as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeNewtonsoft": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds Newtonsoft.Json as reference to the project.",
-      "defaultValue": "false"
+      "description": "Includes external libraries such as Newtonsoft.Json, Protobuf-net, cairo-sharp and Microsoft.Data.Sqlite.",
+      "defaultValue": "true"
     },
     "IncludeHarmony": {
       "type": "parameter",
       "datatype": "bool",
       "description": "Adds Harmony as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeVintagestoryLib": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds VintagestoryLib as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeProtobuf": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds Protobuf-net as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeCairoSharp": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds cairo-sharp as reference to the project.",
-      "defaultValue": "false"
-    },
-    "IncludeSQLite": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds Microsoft.Data.Sqlite as reference to the project.",
-      "defaultValue": "false"
+      "defaultValue": "true"
     },
     "VSCodeTasks": {
       "type": "parameter",
       "datatype": "bool",
       "description": "Include VSCode tasks.json and launch.json for testing.",
-      "defaultValue": "false"
+      "defaultValue": "true"
     },
-    "ArmMacOsLaunchSettings": {
+    "SystemSpecificLaunchSettings": {
       "type": "parameter",
-      "datatype": "bool",
-      "description": "(Rider) Include launch settings for Arm Mac OS (You may only need this on Mac OS, maybe linux. Useless with scripts disabled).",
-      "defaultValue": "false"
+      "description": "Options to modify launch settings for specific systems.",
+      "datatype": "choice",
+      "enableQuotelessLiterals": true,
+      "choices": [
+        {
+          "choice": "ArmMacOsLaunchSettings",
+          "description": "Modify launch settings to work for arm64 macOS (You may only need this on macOS, maybe linux. Useless with scripts disabled)."
+        },
+        {
+          "choice": "SuppressWindowsConsoleWindow",
+          "description": "Suppresses the external console window on Windows."
+        },
+        {
+          "choice": "Default",
+          "description": "Default settings for all systems."
+        }
+      ],
+      "defaultValue": "Default"
     },
     "AddSampleConfig": {
       "type": "parameter",
@@ -126,7 +87,7 @@
       "type": "parameter",
       "datatype": "bool",
       "description": "Includes build.sh and build.ps1 scripts for building the mod with CakeBuild (Not needed on Rider).",
-      "defaultValue": "false"
+      "defaultValue": "true"
     },
     "AdvancedHarmonySetup": {
       "type": "parameter",
@@ -198,12 +159,6 @@
           ]
         },
         {
-          "condition": "(!AddSolutionFile)",
-          "exclude": [
-            "_ProjectName_.sln"
-          ]
-        },
-        {
           "condition": "(!AddSampleConfig)",
           "exclude": [
             "_ProjectName_/Config/**/*"
@@ -220,12 +175,6 @@
           "exclude": [
             "build.sh",
             "build.ps1"
-          ]
-        },
-        {
-          "condition": "(!AddChangelogFile)",
-          "exclude": [
-            "_ProjectName_/changelog.txt"
           ]
         }
       ]

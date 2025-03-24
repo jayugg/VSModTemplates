@@ -20,83 +20,44 @@
       "description": "Adds build and launch scripts to package the mod as a zip and start the game from your IDE.",
       "defaultValue": "true"
     },
-    "AddChangelogFile": {
+    "AddSampleAssets": {
       "type": "parameter",
       "datatype": "bool",
-      "description": "Adds a sample changelog file to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddBlocktypesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample blocktypes folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddItemtypesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample itemtypes folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddBlocktypesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample blocktypes folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddEntitiesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample entities folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddLangFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample lang folder to the template mod.",
-      "defaultValue": "true"
-    },
-    "AddRecipesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample recipes folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddPatchesFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample patches folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddCompatibilityFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample compatibility folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "AddHandbookFolder": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "Adds sample handbook folder to the template mod.",
-      "defaultValue": "false"
-    },
-    "ArmMacOsLaunchSettings": {
-      "type": "parameter",
-      "datatype": "bool",
-      "description": "(Rider) Include launch settings for Arm Mac OS (You may only need this on Mac OS, maybe linux. Useless with scripts disabled).",
+      "description": "Adds sample assets in the assets folder.",
       "defaultValue": "false"
     },
     "VSCodeLaunchSettings": {
       "type": "parameter",
       "datatype": "bool",
       "description": "Include VSCode tasks.json and launch.json for zipping the mod and launching the game (Useless with scripts disabled.)",
-      "defaultValue": "false"
+      "defaultValue": "true"
     },
     "RiderLaunchSettings": {
       "type": "parameter",
       "datatype": "bool",
       "description": "Include Rider .run folder with settings for zipping the mod and launching the game (Useless with scripts disabled.)",
-      "defaultValue": "false"
+      "defaultValue": "true"
+    },
+    "SystemSpecificLaunchSettings": {
+      "type": "parameter",
+      "description": "Options to modify launch settings for specific systems.",
+      "datatype": "choice",
+      "enableQuotelessLiterals": true,
+      "choices": [
+        {
+          "choice": "ArmMacOsLaunchSettings",
+          "description": "Modify launch settings to work for arm64 macOS (You may only need this on macOS, maybe linux. Useless with scripts disabled)."
+        },
+        {
+          "choice": "SuppressWindowsConsoleWindow",
+          "description": "Suppresses the external console window on Windows."
+        },
+        {
+          "choice": "Default",
+          "description": "Default settings for all systems."
+        }
+      ],
+      "defaultValue": "Default"
     },
     "VSInstall": {
       "type": "parameter",
@@ -157,56 +118,14 @@
           ]
         },
         {
-          "condition": "(!AddChangelogFile)",
+          "condition": "(!AddSampleAssets)",
           "exclude": [
-            "changelog.txt"
-          ]
-        },
-        {
-          "condition": "(!AddItemtypesFolder)",
-          "exclude": [
-            "assets/_modid_/itemtypes/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddBlocktypesFolder)",
-          "exclude": [
-            "assets/_modid_/blocktypes/**/*"
-          ]
-        },        {
-          "condition": "(!AddEntitiesFolder)",
-          "exclude": [
-            "assets/_modid_/entities/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddLangFolder)",
-          "exclude": [
-            "assets/_modid_/lang/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddRecipesFolder)",
-          "exclude": [
-            "assets/_modid_/recipes/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddPatchesFolder)",
-          "exclude": [
-            "assets/_modid_/patches/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddCompatibilityFolder)",
-          "exclude": [
-            "assets/_modid_/compatibility/**/*"
-          ]
-        },
-        {
-          "condition": "(!AddHandbookFolder)",
-          "exclude": [
-            "assets/_modid_/handbook/**/*"
+            "assets/_modid_/itemtypes/**/*",
+            "assets/_modid_/blocktypes/**/*",
+            "assets/_modid_/entities/**/*",
+            "assets/_modid_/recipes/**/*",
+            "assets/_modid_/patches/**/*",
+            "assets/_modid_/config/**/*"
           ]
         },
         {
@@ -240,22 +159,6 @@
           ]
         }
       ]
-    }
-  ],
-  "postActions": [
-    {
-      "condition": "(OS != \"Windows_NT\")",
-      "description": "Make scripts executable",
-      "manualInstructions": [
-        {
-          "text": "Run 'chmod +x *.sh'"
-        }
-      ],
-      "actionId": "cb9a6cf3-4f5c-4860-b9d2-03a574959774",
-      "args": {
-        "+x": "scripts/*.sh"
-      },
-      "continueOnError": true
     }
   ]
 }
