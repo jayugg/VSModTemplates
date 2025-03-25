@@ -24,11 +24,6 @@ Simply run the following command
 dotnet new install jayugg.VintageStory.Mod.Templates
 ```
 
-#### Github Packages Install
-```bash
-dotnet add package jayugg.VintageStory.Mod.Templates
-```
-
 #### Local installation
 Clone or download the repository, then enter the parent folder of your local copy of this repository and run the following command
 ```bash
