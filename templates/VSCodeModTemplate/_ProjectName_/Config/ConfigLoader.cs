@@ -15,11 +15,11 @@ public class ConfigLoader : ModSystem
             if (Config == null)
             {
                 Config = new ModConfig();
-                api.Logger.VerboseDebug("[_ProjectName_] Config file not found, creating a new one...");
+                Mod.Logger.VerboseDebug("Config file not found, creating a new one...");
             }
             api.StoreModConfig(Config, ConfigName);
         } catch (Exception e) {
-            api.Logger.Error("[_ProjectName_] Failed to load config, you probably made a typo: {0}", e);
+            Mod.Logger.Error("Failed to load config, you probably made a typo: {0}", e);
             Config = new ModConfig();
         }
     }
