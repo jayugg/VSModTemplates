@@ -23,6 +23,12 @@ public class ConfigLoader : ModSystem
             Config = new ModConfig();
         }
     }
+    
+    public override void Dispose()
+    {
+        Config = null;
+        base.Dispose();
+    }
 
     #if ( AddSampleCode )
     public override void Start(ICoreAPI api)
