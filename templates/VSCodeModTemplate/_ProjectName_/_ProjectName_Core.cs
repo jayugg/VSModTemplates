@@ -24,20 +24,20 @@ public class _ProjectName_Core : ModSystem
 #endif
 {
 #if( QuickStartCode )
-    public static ILogger Logger;
-    public static string Modid;
+    public static ILogger Logger { get; private set; }
+    public static string Modid { get; private set; }
     #if ( ModSide == "client" )
-    public static ICoreClientAPI Capi;
+    public static ICoreClientAPI Capi { get; private set; }
     #elif ( ModSide == "server" )
-    public static ICoreServerAPI Sapi;
+    public static ICoreServerAPI Sapi { get; private set; }
     #else
-    public static ICoreAPI Api;
+    public static ICoreAPI Api { get; private set; }
     #endif
     #if( IncludeHarmony )
-    public static Harmony HarmonyInstance;
+    public static Harmony HarmonyInstance { get; private set; }
     #endif
     #if( AddSampleConfig )
-    public static ModConfig Config;
+    public static Config => ConfigLoader.Config;
     #endif
 
     public override void StartPre(ICoreAPI api)
@@ -93,10 +93,11 @@ public class _ProjectName_Core : ModSystem
         HarmonyInstance = new Harmony(Modid);
         Logger.VerboseDebug("Patching...");
         #if( AddSampleConfig )
-        if (!Config.ExampleConfigSetting) return;
-        #endif
+        ExamplePatchCategory.PatchIfEnabled(Config.ExampleConfigSetting);
+        #else
         HarmonyInstance.PatchCategory(ExamplePatchCategory);
         Logger.VerboseDebug("Patched example patches...");
+        #endif
     }
 
     public static void Unpatch()
