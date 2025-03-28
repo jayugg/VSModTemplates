@@ -50,7 +50,7 @@ public class _ProjectName_Core : ModSystem
         #else
         Api = api;
         #endif
-        Logger = api.Logger;
+        Logger = Mod.Logger;
         Modid = Mod.Info.ModID;
         #if( IncludeHarmony && AdvancedHarmonySetup )
         Patch();
