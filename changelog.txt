@@ -1,5 +1,2 @@
-VS Mod Templates v1.3.2
-- [Code Template] Properly dispose config when config loader unloads
-- [Code Template] Slight improvement to mod logger in config loader
-- [Code Template] Static public fields to properties in core class
-- [Code Template] Improve advanced harmony setup
+VS Mod Templates v1.3.4
+- [Code Template] Include modicon when using client and server launch settings
