@@ -5,7 +5,7 @@ namespace _ProjectName_.Config;
 
 public class ConfigLoader : ModSystem
 {
-    private const string ConfigName = = "_ProjectName_.json";
+    private const string ConfigName = "_ProjectName_.json";
     public static ModConfig Config { get; private set; }
     public override void StartPre(ICoreAPI api)
     {

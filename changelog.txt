@@ -1,2 +1,2 @@
-VS Mod Templates v1.3.4
-- [Code Template] Include modicon when using client and server launch settings
+VS Mod Templates v1.3.5
+- [Code Template] Fix typos regarding config

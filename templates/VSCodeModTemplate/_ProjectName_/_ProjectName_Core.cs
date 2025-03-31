@@ -37,7 +37,7 @@ public class _ProjectName_Core : ModSystem
     public static Harmony HarmonyInstance { get; private set; }
     #endif
     #if( AddSampleConfig )
-    public static Config => ConfigLoader.Config;
+    public static ModConfig Config => ConfigLoader.Config;
     #endif
 
     public override void StartPre(ICoreAPI api)
