@@ -1,2 +1,2 @@
-VS Mod Templates v1.3.5
-- [Code Template] Fix typos regarding config
+VS Mod Templates v1.3.6
+- [Code Template] Add option to enable nullable reference types
