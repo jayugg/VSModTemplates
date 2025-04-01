@@ -20,6 +20,12 @@
       "description": "Includes a ModSystem template to get you started quickly.",
       "defaultValue": "true"
     },
+    "EnableNullable": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Enable nullable reference types in the project.",
+      "defaultValue": "false"
+    },
     "AddSampleCode": {
       "type": "parameter",
       "datatype": "bool",
