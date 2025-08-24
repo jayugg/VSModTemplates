@@ -2,9 +2,9 @@
   
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.3.5</PackageVersion>
+    <PackageVersion>1.4.0</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
-    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Title>Vintage Story Mod Templates</Title>
     <Authors>jayu</Authors>
     <Description>Custom templates for creating Vintage Story mods</Description>

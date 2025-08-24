@@ -62,6 +62,12 @@
       "description": "Include VSCode tasks.json and launch.json for testing.",
       "defaultValue": "true"
     },
+    "IncludeJetBrainsAnnotations": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Adds JetBrains.Annotations as reference to the project.",
+      "defaultValue": "false"
+    },
     "SystemSpecificLaunchSettings": {
       "type": "parameter",
       "description": "Options to modify launch settings for specific systems.",
