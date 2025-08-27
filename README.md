@@ -16,7 +16,7 @@ Includes project using bas build script to zip mod archive
 ## Installation
 
 ### Requirements
-- [.NET SKD 8.0+](https://dotnet.microsoft.com/en-us/download) (This is for v>=1.21.0, use a previous version for .NET7 templates.
+- [.NET SDK 8.0+](https://dotnet.microsoft.com/en-us/download) (This is for v>=1.21.0, use a previous version for .NET7 templates.
 
 #### Nuget install (recommended)
 Simply run the following command
