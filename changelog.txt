@@ -1,2 +1,3 @@
-VS Mod Templates v1.3.6
-- [Code Template] Add option to enable nullable reference types
+VS Mod Templates v1.4.1
+- [Code Template] Add better gitignore
+- [Code Template] Add option to include a CakeBuild task which allows to release the mod as a GitHub package

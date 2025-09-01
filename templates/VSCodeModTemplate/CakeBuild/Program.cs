@@ -112,8 +112,60 @@ public sealed class PackageTask : FrostingTask<BuildContext>
     }
 }
 
+#if( IncludeGitHubReleaseTask )
+[TaskName("Release")]
+[IsDependentOn(typeof(PackageTask))]
+public sealed class ReleaseTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        var version = context.Version;
+        var name = context.Name;
+        var tag = $"v{version}";
+        var zipPath = $"../Releases/{name}_{version}.zip";
+
+        if (!context.FileExists(zipPath))
+            throw new Exception($"Release asset not found at {zipPath}");
+
+        var ghExe = context.Tools.Resolve("gh") ?? "gh";
+
+        // create the release (will fail if already exists)
+        var createArgs = new ProcessArgumentBuilder()
+            .Append("release create")
+            .Append(tag)
+            .AppendQuoted(zipPath.Replace('\\', '/'))
+            .AppendSwitch("--title", " ", tag)
+            .Append("--generate-notes");
+
+        var exitCode = context.StartProcess(ghExe, new ProcessSettings { Arguments = createArgs });
+
+        if (exitCode != 0)
+        {
+            // If the release already exists, just upload/replace the asset
+            var uploadArgs = new ProcessArgumentBuilder()
+                .Append("release upload")
+                .Append(tag)
+                .AppendQuoted(zipPath.Replace('\\', '/'))
+                .Append("--clobber");
+
+            var uploadExit = context.StartProcess(ghExe, new ProcessSettings { Arguments = uploadArgs });
+            if (uploadExit != 0)
+                throw new Exception("Failed to upload asset to existing release.");
+        }
+
+        context.Information($"✅ Published GitHub release {tag} with asset {zipPath}");
+    }
+}
+
+[TaskName("Default")]
+[IsDependentOn(typeof(ReleaseTask))]
+public class DefaultTask : FrostingTask
+{
+}
+#else
 [TaskName("Default")]
 [IsDependentOn(typeof(PackageTask))]
 public class DefaultTask : FrostingTask
 {
 }
+#endif

@@ -16,7 +16,9 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Common;
 
 namespace _ProjectName_;
-
+#if( IncludeJetBrainsAnnotations )
+[UsedImplicitly(ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature)]
+#endif
 #if( IncludeHarmony && AdvancedHarmonySetup )
 public partial class _ProjectName_Core : ModSystem
 #else
@@ -25,7 +27,7 @@ public class _ProjectName_Core : ModSystem
 {
 #if( QuickStartCode )
     public static ILogger Logger { get; private set; }
-    public static string Modid { get; private set; }
+    public static string ModId { get; private set; }
     #if ( ModSide == "client" )
     public static ICoreClientAPI Capi { get; private set; }
     #elif ( ModSide == "server" )
@@ -51,11 +53,11 @@ public class _ProjectName_Core : ModSystem
         Api = api;
         #endif
         Logger = Mod.Logger;
-        Modid = Mod.Info.ModID;
+        ModId = Mod.Info.ModID;
         #if( IncludeHarmony && AdvancedHarmonySetup )
         Patch();
         #elif( IncludeHarmony )
-        HarmonyInstance = new Harmony(Modid);
+        HarmonyInstance = new Harmony(ModId);
         HarmonyInstance.PatchAll();
         #endif
     }
@@ -90,7 +92,7 @@ public class _ProjectName_Core : ModSystem
     public static void Patch()
     {
         if (HarmonyInstance != null) return;
-        HarmonyInstance = new Harmony(Modid);
+        HarmonyInstance = new Harmony(ModId);
         Logger.VerboseDebug("Patching...");
         #if( AddSampleConfig )
         ExamplePatchCategory.PatchIfEnabled(Config.ExampleConfigSetting);
@@ -113,11 +115,11 @@ public class _ProjectName_Core : ModSystem
         #if( IncludeHarmony && AdvancedHarmonySetup )
         Unpatch();
         #elif ( IncludeHarmony)
-        HarmonyInstance?.UnpatchAll(Modid);
+        HarmonyInstance?.UnpatchAll(ModId);
         HarmonyInstance = null;
         #endif
         Logger = null;
-        Modid = null;
+        ModId = null;
         #if ( ModSide == "client" )
         Capi = null;
         #elif ( ModSide == "server" )

@@ -68,6 +68,12 @@
       "description": "Adds JetBrains.Annotations as reference to the project.",
       "defaultValue": "false"
     },
+    "IncludeGitHubReleaseTask": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "Includes a CakeBuild task to release the mod as a GitHub Package",
+      "defaultValue": "false"
+    },
     "SystemSpecificLaunchSettings": {
       "type": "parameter",
       "description": "Options to modify launch settings for specific systems.",
