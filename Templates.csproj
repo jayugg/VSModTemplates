@@ -2,7 +2,7 @@
   
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.4.0</PackageVersion>
+    <PackageVersion>1.4.1</PackageVersion>
     <PackageId>jayugg.VintageStory.Mod.Templates</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Title>Vintage Story Mod Templates</Title>
