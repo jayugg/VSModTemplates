@@ -1,3 +1,2 @@
-VS Mod Templates v1.4.1
-- [Code Template] Add better gitignore
-- [Code Template] Add option to include a CakeBuild task which allows to release the mod as a GitHub package
+VS Mod Templates v1.4.2
+- [Content Template] Do not pack solution file whoopsie

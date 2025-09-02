@@ -1,5 +1,6 @@
 # Exclude files from the zip archive
 scripts/*
 *.zip
+*.sln
 changelog.txt
 README.md
